@@ -7,11 +7,14 @@ export async function createPost(formData) {
   const body = formData.get('body');
   const userId = 1; // Hardcoded for this example
 
-  return axios.post('https://jsonplaceholder.typicode.com/posts', {
-    title,
-    body,
-    userId,
-  }, {
+  return axios.request({
+    method: 'post',
+    url: 'https://jsonplaceholder.typicode.com/posts',
+    data: {
+      title,
+      body,
+      userId,
+    },
     headers: {
       'Content-type': 'application/json; charset=UTF-8',
     },
