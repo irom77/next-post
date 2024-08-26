@@ -1,5 +1,11 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## PostForm Component
+
+This project includes a PostForm component that allows users to create new posts. The form includes fields for the post title and body.
+
+![PostForm Screenshot](./public/postform-screenshot.png)
+
 ## Getting Started
 
 First, run the development server:
