@@ -9,8 +9,10 @@ export default function PostForm() {
   async function handleSubmit(formData) {
     try {
       const result = await createPost(formData);
+      console.log('Server response:', result); // Log the server response to the browser console
       setMessage(`Post created successfully with ID: ${result.id}`);
     } catch (error) {
+      console.error('Error creating post:', error); // Log any errors to the browser console
       setMessage('Failed to create post. Please try again.');
     }
   }
