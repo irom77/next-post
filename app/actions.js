@@ -20,6 +20,8 @@ export async function createPost(formData) {
   if (!response.ok) {
     throw new Error('Failed to create post');
   }
-  // console.log(response.json())
-  return await response.json();
+
+  const responseData = await response.json();
+  console.log('Server response:', responseData);
+  return responseData;
 }
