@@ -1,27 +1,27 @@
 'use server'
 
+import axios from 'axios';
+
 export async function createPost(formData) {
   const title = formData.get('title');
   const body = formData.get('body');
   const userId = 1; // Hardcoded for this example
 
-  const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
-    method: 'POST',
-    body: JSON.stringify({
+  try {
+    const response = await axios.post('https://jsonplaceholder.typicode.com/posts', {
       title,
       body,
       userId,
-    }),
-    headers: {
-      'Content-type': 'application/json; charset=UTF-8',
-    },
-  });
+    }, {
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    });
 
-  if (!response.ok) {
+    console.log('Server response:', response.data);
+    return response.data;
+  } catch (error) {
+    console.error('Error creating post:', error);
     throw new Error('Failed to create post');
   }
-
-  const responseData = await response.json();
-  console.log('Server response:', responseData);
-  return responseData;
 }
